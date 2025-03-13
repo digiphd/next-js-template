@@ -30,7 +30,7 @@ A modern, feature-rich starter template for building production-ready applicatio
 
 ## Convex DB Integration
 
-To set up your Convex database, visit: [https://convex.link/rasmicstarter](https://convex.link/rasmicstarter)
+To set up your Convex database, visit: [https://convex.link/](https://convex.link/)
 
 ## Quick Start
 
