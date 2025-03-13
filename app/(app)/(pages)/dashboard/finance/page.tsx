@@ -2,9 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { api } from "@/convex/_generated/api";
 import { useUser } from "@clerk/clerk-react";
-import { useAction, useQuery } from "convex/react";
 import {
   CreditCard,
   Database, Settings,
@@ -14,24 +12,27 @@ import {
 export default function FinancePage() {
   const { user } = useUser();
 
-  const userData = useQuery(api.users.getUserByToken,
-    user?.id ? { tokenIdentifier: user.id } : "skip"
-  );
+  // Mock data for development
+  const userData = user ? {
+    name: user.firstName + " " + user.lastName,
+    email: user.primaryEmailAddress?.emailAddress,
+    createdAt: user.createdAt,
+    _id: user.id
+  } : null;
 
-  const subscription = useQuery(api.subscriptions.getUserSubscription);
-  const getDashboardUrl = useAction(api.subscriptions.getUserDashboardUrl);
+  const subscription = {
+    status: "active",
+    amount: 2000,
+    interval: "month",
+    currentPeriodEnd: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
+    customerId: "cus_mock_123",
+    polarId: "pol_mock_123",
+    startedAt: new Date().toISOString(),
+    cancelAtPeriodEnd: false
+  } as const;
 
-  const handleManageSubscription = async () => {
-    try {
-      const result = await getDashboardUrl({
-        customerId: subscription?.customerId!
-      });
-      if (result?.url) {
-        window.location.href = result.url;
-      }
-    } catch (error) {
-      console.error("Error getting dashboard URL:", error);
-    }
+  const handleManageSubscription = () => {
+    console.log("Subscription management disabled in development");
   };
 
   return (
@@ -74,7 +75,7 @@ export default function FinancePage() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Created:</span>
-                  <span className="font-medium">{new Date(user?.createdAt || "").toLocaleDateString()}</span>
+                  <span className="font-medium">{user?.createdAt ? new Date(user.createdAt).toLocaleDateString() : "N/A"}</span>
                 </div>
                 <div className="space-y-1">
                   <span className="text-muted-foreground">User ID:</span>
@@ -117,7 +118,7 @@ export default function FinancePage() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Next Billing:</span>
-                  <span className="font-medium">{new Date(subscription?.currentPeriodEnd!).toLocaleDateString()}</span>
+                  <span className="font-medium">{new Date(subscription.currentPeriodEnd).toLocaleDateString()}</span>
                 </div>
               </div>
             )}
@@ -191,7 +192,7 @@ export default function FinancePage() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Started At:</span>
-                  <span className="font-medium">{new Date(subscription?.startedAt!).toLocaleDateString()}</span>
+                  <span className="font-medium">{new Date(subscription.startedAt).toLocaleDateString()}</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Auto Renew:</span>

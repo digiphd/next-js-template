@@ -1,18 +1,10 @@
 import { Button } from '@/components/ui/button';
 import NavBar from '@/components/wrapper/navbar';
-import { api } from '@/convex/_generated/api';
-import { getAuthToken } from '@/lib/auth';
-import { fetchQuery } from 'convex/nextjs';
 import Link from 'next/link';
 
 export default async function SuccessPage() {
-  const token = await getAuthToken();
-
-  const { hasActiveSubscription } = await fetchQuery(api.subscriptions.getUserSubscriptionStatus, {
-  }, {
-    token: token!,
-  });
-
+  // Mock subscription status for development
+  const hasActiveSubscription = true;
 
   return (
     <main className="flex min-w-screen flex-col items-center justify-between">

@@ -6,13 +6,7 @@ import SideBySide from "@/components/homepage/side-by-side";
 import PageWrapper from "@/components/wrapper/page-wrapper";
 import { polar } from "@/lib/polar";
 
-export default async function Home() {
-
-  const data = await polar.products.list({
-    organizationId: process.env.POLAR_ORGANIZATION_ID,
-  });
-
-
+export default function Home() {
   return (
     <PageWrapper>
       <div className="flex flex-col justify-center items-center w-full mt-[1rem] p-3">
@@ -20,7 +14,7 @@ export default async function Home() {
       </div>
       <SideBySide />
       <MarketingCards />
-      <Pricing result={data?.result as any} />
+      <Pricing result={{ items: [], pagination: { totalCount: 0, maxPage: 0 } }} />
       <AccordionComponent />
     </PageWrapper>
   );

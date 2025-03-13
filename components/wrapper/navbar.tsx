@@ -90,7 +90,7 @@ export default function NavBar() {
                     Links
                   </h2>
                   <Link
-                    href="https://github.com/michaelshimeles/nextjs14-starter-template"
+                    href="https://github.com/digiphd/next-js-template"
                     target="_blank"
                     prefetch={true}
                   >
@@ -185,7 +185,7 @@ export default function NavBar() {
             <Button variant="ghost">AI Playground</Button>
           </Link>
           <Link
-            href="https://github.com/michaelshimeles/nextjs14-starter-template"
+            href="https://github.com/digiphd/next-js-template"
             prefetch={true}
           >
             <Button variant="ghost" size="icon">

@@ -10,9 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { api } from "@/convex/_generated/api";
 import { useUser } from "@clerk/nextjs";
-import { useAction } from "convex/react";
 import { CheckCircle2, DollarSign } from "lucide-react";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
@@ -116,7 +114,6 @@ const PricingCard = ({
   benefits,
 }: PricingCardProps) => {
   const router = useRouter();
-  const getProCheckoutUrl = useAction(api.subscriptions.getProOnboardingCheckoutUrl);
 
   const currentPrice = prices.find(price =>
     isYearly
@@ -128,31 +125,19 @@ const PricingCard = ({
   const currency = currentPrice?.priceCurrency?.toUpperCase() || 'USD';
   const interval = isYearly ? 'year' : 'month';
 
-  const handleCheckout = async () => {
-    if (!currentPrice) return;
-
-    try {
-      const checkout = await getProCheckoutUrl({
-        priceId: currentPrice.id,
-      });
-      window.location.href = checkout;
-    } catch (error) {
-      console.error("Failed to get checkout URL:", error);
-    }
-  };
-
   const handleButtonClick = () => {
     if (!user) {
       router.push("/sign-in");
       return;
     }
-    handleCheckout();
+    // Temporarily disabled checkout functionality
+    console.log('Checkout functionality temporarily disabled');
   };
 
   const buttonText = !user
     ? "Sign in to continue"
     : !currentPrice
-      ? "No price available"
+      ? "Coming soon"
       : "Get Started";
 
   return (

@@ -1,4 +1,4 @@
-# Next.js 15 Starter Kit
+# Next.js Starter Kit
 
 A modern, feature-rich starter template for building production-ready applications with Next.js, Tailwind CSS, and TypeScript.
 
@@ -53,7 +53,7 @@ exec /bin/zsh
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/michaelshimeles/nextjs14-starter-template.git
+git clone https://github.com/digiphd/next-js-template.git
 ```
 
 2. Install dependencies:
@@ -127,6 +127,27 @@ Open [http://localhost:3000](http://localhost:3000) to see your application.
 - `bun run start` - Start production server
 - `bun run lint` - Run ESLint
 - `bun run format` - Format code with Prettier
+
+## Updating Dependencies
+
+To check for outdated dependencies, run:
+```bash
+bun outdated
+```
+
+To update dependencies, run:
+```bash
+bun update
+```
+
+To update a specific package, run:
+```bash
+bun update <package-name>
+```
+Example:
+```bash
+bun update next typescript @clerk/nextjs convex
+```
 
 ## Contributing
 

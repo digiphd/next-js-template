@@ -1,4 +1,4 @@
-import Provider from "@/app/provider";
+import Provider from "./provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { ClerkProvider } from "@clerk/nextjs";

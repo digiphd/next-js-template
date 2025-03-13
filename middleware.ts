@@ -1,29 +1,20 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
-import { fetchQuery } from 'convex/nextjs';
 import { NextResponse } from 'next/server';
-import { api } from './convex/_generated/api';
 
 const isProtectedRoute = createRouteMatcher(['/dashboard(.*)'])
 
 export default clerkMiddleware(async (auth, req) => {
-
-  const token = (await (await auth()).getToken({ template: "convex" }))
-
-
-  const { hasActiveSubscription } = await fetchQuery(api.subscriptions.getUserSubscriptionStatus, {
-  }, {
-    token: token!,
-  });
-
-  const isDashboard = req.nextUrl.href.includes(`/dashboard`)
-
-  if (isDashboard && !hasActiveSubscription) {
-    const pricingUrl = new URL('/pricing', req.nextUrl.origin)
-    // Redirect to the pricing page
-    return NextResponse.redirect(pricingUrl);
+  // Temporarily disable authentication and subscription checks for local development
+  if (process.env.NODE_ENV === 'development') {
+    return NextResponse.next();
   }
 
-  if (isProtectedRoute(req)) await auth.protect()
+  // Only protect routes in production
+  if (process.env.NODE_ENV === 'production' && isProtectedRoute(req)) {
+    await auth.protect();
+  }
+
+  return NextResponse.next();
 })
 
 export const config = {

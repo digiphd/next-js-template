@@ -54,7 +54,7 @@ export default function Footer() {
                             Everything you need, from auth to payments.
                         </p>
                         <div className="flex space-x-4">
-                            <Link href="https://github.com/michaelshimeles/nextjs14-starter-template" target="_blank">
+                            <Link href="https://github.com/digiphd/next-js-template" target="_blank">
                                 <Button variant="ghost" size="icon">
                                     <Github className="h-5 w-5" />
                                 </Button>
