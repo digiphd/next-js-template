@@ -1,19 +1,19 @@
 # Next.js 15 Starter Kit
 
-A modern, feature-rich starter template for building production-ready applications with Next.js 15, Tailwind CSS, and TypeScript.
+A modern, feature-rich starter template for building production-ready applications with Next.js, Tailwind CSS, and TypeScript.
 
 ![Next Starter Kit](https://dwdwn8b5ye.ufs.sh/f/MD2AM9SEY8GucGJl7b5qyE7FjNDKYduLOG2QHWh3f5RgSi0c)
 
 ## Features
 
 ### Core Technologies
-- ⚡ **Next.js 15** - The latest version with App Router
-- 🎨 **Tailwind CSS** - Utility-first CSS framework
-- 📘 **TypeScript** - Type-safe code
-- 🔒 **Authentication** - Clerk integration with persistent authorization toggle
-- 🎭 **Shadcn/ui** - Beautiful and accessible components
-- 💾 **Convex DB** - Real-time database with built-in file storage and serverless functions
-- 💳 **Polar.sh** - Open-source solution for managing subscriptions and payments
+- ⚡ **Next.js 15** - The latest version with App Router - [https://nextjs.org/](https://nextjs.org/)
+- 🎨 **Tailwind CSS** - Utility-first CSS framework - [https://tailwindcss.com/](https://tailwindcss.com/)
+- 📘 **TypeScript** - Type-safe code - [https://www.typescriptlang.org/](https://www.typescriptlang.org/)
+- 🔒 **Authentication** - Clerk integration with persistent authorization toggle - [https://clerk.dev](https://clerk.dev)
+- 🎭 **Shadcn/ui** - Beautiful and accessible components - [https://ui.shadcn.com](https://ui.shadcn.com)
+- 💾 **Convex DB** - Real-time database with built-in file storage and serverless functions - [https://convex.dev](https://convex.dev)
+- 💳 **Polar.sh** - Open-source solution for managing subscriptions and payments - [https://polar.sh](https://polar.sh)
 
 ### Performance Optimizations
 - 🚀 **Route Prefetching** - Instant page transitions for dashboard, playground, and auth pages
@@ -127,10 +127,6 @@ Open [http://localhost:3000](http://localhost:3000) to see your application.
 - `bun run start` - Start production server
 - `bun run lint` - Run ESLint
 - `bun run format` - Format code with Prettier
-
-## Sponsors and Supporters
-
-Special thanks to [Convex](https://www.convex.dev/) for their sponsorship and support in making this starter kit possible. Their real-time database and file storage solutions have been instrumental in creating a powerful foundation for modern web applications.
 
 ## Contributing
 
