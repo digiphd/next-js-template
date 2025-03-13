@@ -34,6 +34,23 @@ To set up your Convex database, visit: [https://convex.link/rasmicstarter](https
 
 ## Quick Start
 
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18.0.0 or higher)
+- [Bun](https://bun.sh/) (v1.0.0 or higher)
+
+#### Install Bun
+
+```bash
+curl -fsSL https://bun.sh/install | bash # Macos, Linux, WSL
+```
+Restart your terminal.
+```bash
+exec /bin/zsh
+```
+
+### Setup
+
 1. Clone the repository:
 ```bash
 git clone https://github.com/michaelshimeles/nextjs14-starter-template.git
